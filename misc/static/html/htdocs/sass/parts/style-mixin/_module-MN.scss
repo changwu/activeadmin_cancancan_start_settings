@@ -1,0 +1,138 @@
+/*doc
+---
+title: Alert MdMN
+name: alert-MdMN
+category: MdMN
+---
+
+任意のテキスト
+
+\`\`\` html_example
+    <div class="component-alert">
+      <h2 class="alert-title">Title</h2>
+      <p class="alert-text">comments</p>
+    </div>
+\`\`\`
+
+### オプション見出し
+任意のテキスト
+
+*/
+
+
+
+@charset "UTF-8";
+
+@mixin MdTpl01 {
+    .MdTpl01 {
+        h1 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            padding-top: 3rem;
+            padding-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: normal;
+            padding-top: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        p , pre {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            padding-bottom: 1.5rem;
+        }
+        pre {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 1.5rem;
+        }
+        h1 + p {
+            padding-bottom: 0;
+        }
+        table {
+            width: 100%; 
+            margin-bottom: 1.5rem;
+            th {
+                text-align: left;
+                font-weight: normal;
+                background: #f1f1f1;
+            }
+            th , td {
+                font-size: 0.8rem;
+                line-height: 1.8; 
+                padding: 10px;
+                border: 1px solid #ccc; 
+            }
+        }
+        .mdTpl01Box {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        ol {
+            margin-left: 1.0rem;
+            li {
+                font-size: 0.9rem;
+                line-height: 1.8; 
+                list-style: decimal;
+                margin-bottom: 15px;
+                margin-left: 30px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+        ul {
+            margin-left: 1.0rem;
+            li {
+                font-size: 0.9rem;
+                line-height: 1.8; 
+                list-style: square;
+                margin-bottom: 15px;
+                margin-left: 20px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+        .mdTpl04Note {
+            border: 1px solid #ccc;
+            line-height: 1.8; 
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .salePrice {
+            padding-left: 10px; 
+            color: red; 
+            font-size: 14px;
+            font-weight: bold;
+            span {
+                font-size: 12px;
+                font-weight: normal;
+            }
+        }
+        .saleCaution {
+            color: red;
+            font-weight: bold;  
+        }
+
+        input {
+            width: 80%; 
+            max-width: 60px;
+            margin-right: 8px; 
+        }
+        .saleThanks {
+            text-align: center;
+        }
+    }
+}
+
+
+

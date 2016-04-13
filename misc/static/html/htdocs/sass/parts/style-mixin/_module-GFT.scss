@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+//
+// Module: GFT(Global Footer)
+//
+@mixin MdGFT01Copy {
+    .MdGFT01Copy {
+        @include span-columns(4);
+        color: #C8C8CA; 
+        font-size: 11px;
+        font-family: "Roboto";
+        b {
+            margin-left: 3px;
+        }
+    }
+}
+
+@mixin MdGFT02Util {
+    .MdGFT02Util {
+        @include span-columns(8);
+    }
+
+}

@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>CSS コーディングガイド Ver.1.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1>CSS コーディングガイド Ver.1.0</h1>
+<p>CSSの基本的な記述ルール説明</p>
+
+<h2>sass</h2>
+<p>基本的にsassを利用する<br>
+gulpを利用してコンパイルと圧縮をする。</p>
+
+<h2>インデント/コメントルール</h2>
+<p>プロパティは1行ずつ記述し、インデント（Tab文字）を入れる。</p>
+
+<h2>コメント</h2>
+<pre>
+<code>
+/*
+==================================================
+大見出しコメント
+==================================================
+*/
+
+/*
+--------------------------------------------------
+中見出しコメント
+--------------------------------------------------
+*/
+
+/* @:小見出しコメント（モジュール名など）*/
+
+selector△｛
+［Tab］property:△value;
+｝
+</code>
+</pre>
+
+<h2>セレクタ</h2>
+<ul>
+<li>セレクタは親モジュール　子モジュールの2つでスタイルを指定すること。
+<li>可能な限り子孫セレクタを減らし、CSS描画の低速化を防ぐ。
+</ul>
+<ul>
+<li>HTMLタグでの指定よりもクラス名での指定のほうが、描画が早いため、子モジュールの指定は、可能な限りHTMLタグではなくクラス名で指定する。
+<li>HTMLタグで指定する場合は、子供セレクタ（>）で指定する。
+</ul>
+<ul>
+<li>ユニバーサルセレクタ(*)、要素タイプ（○.hoge｛...｝、×div.hoge｛...｝）の指定は禁止とする。
+</ul>
+
+<h2>プロパティ</h2>
+<ul>
+<li>プロパティの記述順序はCSS Property Order Sheetの順序をベースにする（グループごとにまとまっていればOK）。
+<li>原則、!important宣言は使用しない。
+</ul>
+<ul>
+<li>値が「0」の場合、単位は省略する。
+<li>line-height：1.6;　pxではなく実数で書く。
+</ul>
+
+<h2>ベースのfont指定</h2>
+<ul>
+<li>font: 13px/1.231 sans-serif;
+<li>font-family: "MS PGothic",arial,sans-serif\0/;（IEにだけ日本語フォントを適用）
+</ul>
+
+<h2>url()の指定</h2>
+<ul>
+<li>()の中に引用符（ダブルクオーテーション）は付けない。
+</ul>
+
+<h2>色の指定</h2>
+<ul>
+<li>3桁もしくは6桁のRGB値で指定し、カラーネームでの指定は不可。
+<li>要件によっては、rgba()の使用を可とする（IEにはfilterや透過PNGを使用する必要あり）。
+</ul>
+
+<h2>CSSハック</h2>
+<p>
+原則、CSSハックの使用は極力避ける。<br>
+IE向けには下記のものを使用する。
+</p>
+<pre>
+<code>
+IE6/7/8用　　: selector { property: value\9; } --- 値の後に「\9」を記述
+IE6/7用　　　: selector { *property: value; }  --- プロパティの前に「*」を記述
+IE6用　　　　: selector { _property: value; }  --- プロパティの前に「_」を記述
+</code>
+</pre>
+<p>IE6/7/8個別にハックをかける場合の例</p>
+<pre>
+<code>
+selector {
+　　　property: value\9; --- IE6/7/8に指定（IE8に適用）
+　　　*property: value;  --- IE6/7に指定（IE7に適用）
+　　　_property: value;  --- IE6はここで戻す（IE6に適用）
+}
+</code>
+</pre>
+<p>
+フォントファミリーの指定の場合、「\9」ハックは使えないので 「\0/」ハックを代用
+</p>
+<pre>
+<code>
+selector {
+　　　property: value, value\0/;  --- IE6/7/8/9に適用される
+}
+</code>
+</pre>
+
+<h2>DataURI化の対象</h2>
+<ul>
+<li>スプライト化できない画像はDataURI化を検討することができます。
+<li>できるだけ先読みさせる必要がある画像、かつ先読みさせても問題がでない程度のファイルサイズの画像のみとします。
+<li>ローディングイメージのgifアニメなど
+<a href="http://caniuse.com/#feat=datauri" target="_blank">ブラウザ対応状況</a>
+</ul>
+<h3 class="MdCMN01TtlH3">DataURI画像の管理</h3>
+<p>img/dataURIディレクトリで、dataURIに変換した画像を配置しておく。</p>
+
+<h2>sprite画像の検討</h2>
+<p>画像のファイルサイズや使用頻度・リクエスト数を考慮して判断する必要があります。</p>
+<ul>
+<li>CMSなどで更新する予定のある画像はスプライト化しません。
+<li>js側で操作する画像は、単体画像を &lt;img&gt;で使用します。
+もしくは、spanを利用して背景で利用。html &lt;span style="background-image: url(...);"&gt;...&lt;/span&gt;
+</ul>
+
+
+<!-- MdTpl01 --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>HTML コーディングガイド Ver.1.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1>HTML コーディングガイド Ver.1.0</h1>
+<p>HTMLの基本的な記述ルール説明</p>
+
+<h2>HTML 文書タイプ</h2>
+<ul>
+<li>文書タイプはHTML5
+<li>要素名、属性名は全て小文字で記述し、空要素の閉じタグは記述しない
+</ul>
+
+<h2>HTML インデント/コメントルール</h2>
+<p>インデントは全ての要素で行わない。<br>（多くのプログラム内でインデント階層の保持が難しい場合があるが、数byteでも削れるところは削る）</p>
+
+<h2>HTML モジュール終了コメント</h2>
+<ul>
+<li>&lt;!-- で開始、 --&gt; で終了。
+<li>大文字から始まる大モジュールには終了タグ必須とする。
+<li>閉じコメントにはClass名のみ記述。
+<li>ID名のコメントが必要な場合は#をつける。
+</ul>
+
+<h2>HTML コメント指示、メモ</h2>
+<ul>
+<li>&lt;!--[toDEV]hogehoge--&gt;　←開発向けコメント
+<li>&lt;!--[toRIA]hogehoge--&gt;　←RIA向けコメント
+<li>&lt;!--[NOTE]hogehoge--&gt;　←注意点や問題などを書き残すとき
+<li>&lt;!--[TODO]hogehoge--&gt;　←やること
+</ul>
+
+<h2>HTML class/idの使い分け</h2>
+<ul>
+<li>id属性は極力使わず、classベースでマークアップする。
+<li>id属性はjsで利用する。
+</ul>
+
+<!-- MdTpl01 --></div>
+
+<!-- /LyMain --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

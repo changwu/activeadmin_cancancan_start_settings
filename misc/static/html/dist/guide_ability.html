@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>アクセシビリティ ガイド Ver.1.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1>アクセシビリティ/ユーザビリティガイドライン</h1>
+<p>対応範囲と品質チェックについて</p>
+
+<h2>印刷対応</h2>
+<ul>
+<li>印刷が必要なページのみ個別に対応し、通常は印刷用CSSは用意しない。
+<li>印刷対応する場合でも、画面と同じ見た目で印刷させるため、Screen用とPrint用でCSSを分けない。
+</ul>
+
+<h2>JS非対応環境</h2>
+<p>対応は特におこなわない。<br>noscript要素でJavaScriptを使用している旨を明示してもよい。</p>
+
+<h2>音声ブラウザ/テキストブラウザ対応</h2>
+<p>別途最適化対応は行わない。</p>
+
+<h2>品質チェック</h2>
+<p>Validator.nuの設定</p>
+<ul>
+<li><a href="http://validator.nu/" target="_blank">http://validator.nu/</a>
+</ul>
+<p>HTML5 Outlinerについて（Web版とChrome拡張版）</p>
+<ul>
+    <li><a href="http://gsnedders.html5.org/outliner/" target="_blank">Web版* http://gsnedders.html5.org/outliner/</a>
+        <li><a href="https://chrome.google.com/webstore/detail/afoibpobokebhgfnknfndkgemglggomo?hl=ja" target="_blank">Chrome拡張版* https://chrome.google.com/webstore/detail/afoibpobokebhgfnknfndkgemglggomo?hl=ja</a>
+</ul>
+<p>CSS Lint<br>
+CSS Lintの設定について </p>
+<ul>
+    <li><a href="http://dev-uit.navercorp.jp/file/personal/trunk/jp61105/csslint/demo/index.html" target="_blank">http://dev-uit.navercorp.jp/file/personal/trunk/jp61105/csslint/demo/index.html</a>
+</ul>
+
+
+<!-- MdMN02develop --></div>
+
+<!-- /LyMain --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

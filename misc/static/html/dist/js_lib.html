@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>jsライブラリ</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+<h1 class="MdCMN01TtlH1">jsライブラリ</h1>
+<h2>はじめに</h2>
+<ul>
+<li>以下に列挙するライブラリについては、積極的に使用する。
+<li>jQuery, Zeptoを使用する場合は、以下のように記述する。(jQuery <=> Zeptoの切り替えに対応)
+<li>(function($) { $... }(Zepto||jQuery));
+<li>ライブラリ側で発生した問題については、情報を共有する。
+<li>あくまでも推奨なので、この限りではありません。
+<li>使用している外部のライブラリについては随時追加してください。
+</ul>
+<h2>一覧</h2>
+<table>
+<tr>
+    <th></th>
+    <td>種類</td>
+    <td>PC</td>
+    <td>SP</td>
+    <td>webview</td>
+    <td>download</td>
+</tr>
+<tr>
+    <th>jQuery</th>
+    <td>ライブラリ</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td>△</td>
+    <td><a href="http://jquery.com/download/">http://jquery.com/download/</a></td>
+</tr>
+<tr>
+    <th>Zepto.js</th>
+    <td>ライブラリ</td>
+    <td>NG</td>
+    <td>△</td>
+    <td>OK</td>
+    <td><a href="http://zeptojs.com/">http://zeptojs.com/</a></td>
+</tr>
+<tr>
+    <th>Underscore.js</th>
+    <td>ユーティリティ</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td></td>
+    <td><a href="http://underscorejs.org/">http://underscorejs.org/</a></td>
+</tr>
+<tr>
+    <th>Backbone.js</th>
+    <td>フレームワーク</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td></td>
+    <td><a href="http://backbonejs.org/">http://backbonejs.org/</a></td>
+</tr>
+<tr>
+    <th>AnguarJS</th>
+    <td>フレームワーク</td>
+    <td>OK</td>
+    <td>△</td>
+    <td></td>
+    <td><a href="http://angularjs.org/">http://angularjs.org/</a></td>
+</tr>
+<tr>
+    <th>flot.js</th>
+    <td>グラフ描画</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td></td>
+    <td><a href="http://www.flotcharts.org/">http://www.flotcharts.org/</a></td>
+</tr>
+<tr>
+    <th>flipsnap.js</th>
+    <td>スワイプ</td>
+    <td>×</td>
+    <td>OK</td>
+    <td></td>
+    <td><a href="http://pxgrid.github.io/js-flipsnap/">http://pxgrid.github.io/js-flipsnap/</a></td>
+</tr>
+<tr>
+    <th>swiper</th>
+    <td>スワイプ</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td><a href="http://www.idangero.us/swiper/#.VaJPApPtlBc">http://www.idangero.us/swiper/#.VaJPApPtlBc</a></td>
+</tr>
+<tr>
+    <th>iScroll</th>
+    <td>ヘッダ・フッタ固定、スワイプ</td>
+    <td>OK</td>
+    <td>OK</td>
+    <td></td>
+    <td><a href="http://cubiq.org/iscroll-4">http://cubiq.org/iscroll-4</a></td>
+</tr>
+</table>
+
+<h2>ライブラリ検索サイト</h2>
+<p><a href="http://www.jsdb.io/">http://www.jsdb.io/</a></p>
+
+<h2>ライブラリ使用時の注意事項</h2>
+
+<h3>jQuery</h3>
+<ul>
+<li>//@ sourceMappingURL=jquery-1.10.2.min.mapがコメントについているため、 debug toolでみた時に、リクエストが発生し404エラーがでる。 debug toolで見た時だけリクエストが発生するので、その旨伝えるか、コメントを削除しておくこと。
+</ul>
+
+<h3>Zepto</h3>
+<ul>
+<li>windows phone対応が必要なSPサイトの場合は、使用できません。
+</ul>
+
+<h3>flipssnap</h3>
+<ul>
+<li>windows phoneで使用できません。
+<li>ダウンロード版では、自動ローテーション機能はありません。
+</ul>
+
+<h3>iScroll</h3>
+<ul>
+<li>ヘッダー、フッタ固定時に使用するが、動きが重くなるので注意が必要。
+</ul>
+
+<h2>ライブラリの使い方メモ</h2>
+
+<h3>swiper</h3>
+<p>swiperのPCドラッグ無しの設定はsimulateTouchパラメータをfalseで設定すると動作しているようにみえます</p>
+
+
+<h2>メモ</h2>
+<ul>
+<li>overflowScroll
+<li>
+<li>
+</ul>
+
+
+
+<!-- MdTpl01 --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>

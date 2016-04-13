@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+//
+// Module: Common
+//
+
+
+// @:Color
+// --------------------------------------------------
+//
+// 通常テキストとリンクテキストの色を固定するスタイルの
+// CSSルールセットを内包するミックスインを定義します
+// 必要に応じてミックスインやルールセットを追加してください
+//
+// このクラスの用途について:
+// 基本的にはモジュール固有のルールセットでスタイルを定義しますが、
+// 例外として別の色を上書き指定したい場合などに利用します
+//
+// @example
+// ミックスインの記述例
+//
+//     @mixin MdColor01 {
+//         .MdColor01,
+//         .MdColor01 a:link,
+//         .MdColor01 a:visited,
+//         .MdColor01 a:hover,
+//         .MdColor01 a:active,
+//         .MdColor01 a:focus {
+//             color: #000 !important;
+//         }
+//     }
+//
+
+@mixin MdLink01 {
+    .MdLink01,
+    .MdLink01 a:link,
+    .MdLink01 a:visited,
+    .MdLink01 a:hover,
+    .MdLink01 a:active,
+    .MdLink01 a:focus {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+@mixin MdBtn01 {
+    .MdBtn01 {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 60px; 
+        span{
+            padding: 20px 100px;
+            font-size: 18px;
+            color: #FFF;
+            background: #b90c87; 
+            border: 1px solid #ccc;  
+        }
+        a {
+            padding: 32px 60px;
+            border-radius: 8px ;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            display: inline-block;
+            @extend %image-hover;
+            @include link-underline(none);
+        }
+    }
+}
+
+
+@mixin MdTagLine {
+    .MdTagLine {
+        background: #b90c87; 
+        padding: 10px 40px;
+        padding: 8px 0;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        a {
+            color: #fff;
+            font-size: 14px;
+            @include link-underline(none-to-line);
+        }
+    }
+}
+
+

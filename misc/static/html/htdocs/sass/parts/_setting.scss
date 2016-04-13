@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+//
+// Setting: Base
+//
+// - Path
+// - Body Style
+//
+
+// @:Path
+//==================================================
+
+// @:Project
+//--------------------------------------------------
+
+$path-pj : "..";
+$path-img: "#{$path-pj}/img";
+
+
+// @:Images
+//--------------------------------------------------
+//
+// $path-{ImageFileName}: "path/to/{ImageFileName}.png";
+//
+
+// @example
+//     $path-sprite_common: "#{$path-img}/sprite_common.png";
+//
+
+
+
+// @:Body Style
+//==================================================
+
+// @:color
+//--------------------------------------------------
+
+$body-color   : #333;
+$body-bg-color: #fdfdfd;
+
+$body-link-color-normal : #2d86b2;
+$body-link-color-visited: $body-link-color-normal;
+$body-link-color-hover  : $body-link-color-normal;
+$body-link-color-active : $body-link-color-normal;
+$body-link-color-focus  : $body-link-color-normal;
+
+// @:text
+//--------------------------------------------------
+
+// # font-sizeとline-height
+// font-sizeが13pxでline-heightが1.231の場合、
+// 計算後のline-heightは約16pxになります。
+$body-font-size  : 13px;
+$body-line-height: 1.231;
+
+
+// # 基本font-family
+$body-font-family: "sans-serif";
+
+// # IE用のフォント
+$body-font-family-ie : "'MS PGothic', arial, sans-serif#{$HACK-IE}";
+
+// # bodyにOS振り分け用のclassをつける場合のフォント設定
+// .ExOsWin用
+$body-font-family-win: false;
+// .ExOsMac用
+$body-font-family-mac: "sans-serif";
+
+@mixin body-text-style {
+	line-height: $body-line-height;
+	color: $body-color;
+	font-family: unquote($body-font-family);
+	font-family: unquote($body-font-family-ie);
+	font-size: $body-font-size;
+}
+
+// @:link style
+//--------------------------------------------------
+
+@mixin body-link-style {
+	&:link,
+	&:visited {
+		color: $body-link-color-normal;
+		text-decoration: underline;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		color: $body-link-color-hover;
+		text-decoration: none;
+	}
+	//@include link-underline(line);
+}
+

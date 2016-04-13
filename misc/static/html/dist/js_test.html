@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>jsテスト/品質チェック</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+<h1 class="MdCMN01TtlH1">jsテスト/品質チェック</h1>
+<h2>方法</h2>
+<ul>
+<li>jshintを必ず実施する。
+</ul>
+<h2>jshint</h2>
+<h3>コマンドで個別に実行する場合</h3>
+<pre>
+<code>
+$ npm install jshint -g
+</code>
+</pre>
+<pre>
+<code>
+$ jshint myfile.js
+myfile.js: line 10, col 39, Octal literals are not allowed in strict mode.
+
+1 error
+</code>
+</pre>
+
+<h2>実行時オプション(options)[http://www.jshint.com/docs/options/]</h2>
+<p>定期的に、オプションの見直しを行う</p>
+
+
+<table>
+<thead>
+<tr>
+<th>col1</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>strict</td>
+<td>FALSE</td>
+<td>Require <code>use strict</code> pragma  in every file.</td>
+<td>EcmaScript5のstrict modeで実行可能なコードを強制します 注意このオプションは関数スコープでしか有効になりません｡グローバルスコープでstrict modeを有効にするとサードパーティのコードが動かなくなる可能性があります｡グローバルスコープでのstrict modeも有効にしたい場合はglobalstrictオプションを使ってください｡</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>2</td>
+<td>bitwise</td>
+<td>TRUE</td>
+<td>Prohibit bitwise operators (&amp;, |, ^, etc.).</td>
+<td>ビット演算子の使用を禁止します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>3</td>
+<td>curly</td>
+<td>TRUE</td>
+<td>Require {} for every new block or scope.</td>
+<td>ループブロックと条件ブロックを常に中括弧で囲うことを強制します</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>4</td>
+<td>eqeqeq</td>
+<td>TRUE</td>
+<td>Require triple equals i.e. <code>===</code>.</td>
+<td>==演算子と!=演算子の使用を禁止します 注意 このオプションがfalseになっていても､!= nullのように安全でない比較には警告がでます｡この警告を無くすには eqnullオプションを使ってください｡</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>5</td>
+<td>forin</td>
+<td>FALSE</td>
+<td>Tolerate <code>for in</code> loops without <code>hasOwnPrototype</code>.</td>
+<td>for inループ内で常にオブジェクトのプロパティがprototypeを通じて継承されたものであるかどうかのチェックするように強制します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>6</td>
+<td>immed</td>
+<td>TRUE</td>
+<td>Require immediate invocations to be wrapped in parens e.g. <code>( function(){}() );</code>
+</td>
+<td>括弧で囲まれていない関数の即時実行を禁止します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>7</td>
+<td>latedef</td>
+<td>TRUE</td>
+<td>Prohipit variable use before definition.</td>
+<td>定義前の変数、関数の使用を禁止する</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>8</td>
+<td>undef</td>
+<td>TRUE</td>
+<td>Require all non-global variables be declared before they are used.</td>
+<td>明示的に宣言されていない変数の使用を禁止します｡</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>newcap</td>
+<td>TRUE</td>
+<td>Require capitalization of all constructor functions e.g. <code>new F()</code>.</td>
+<td>コンストラクタ関数の一文字目を大文字にすることを強制します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>10</td>
+<td>noempty</td>
+<td>TRUE</td>
+<td>Prohibit use of empty blocks.</td>
+<td>空のブロックがある場合に警告をだします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>11</td>
+<td>nonew</td>
+<td>TRUE</td>
+<td>Prohibit use of constructors for side-effects.</td>
+<td>副作用のあるコンストラクタ関数の呼び出しを禁止します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>12</td>
+<td>plusplus</td>
+<td>FALSE</td>
+<td>Prohibit use of <code>++</code> &amp; <code>--</code>.</td>
+<td>
+<code>+ +</code>＆<code>--</code>.の使用を禁止する</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>13</td>
+<td>trailing</td>
+<td>TRUE</td>
+<td>Prohibit trailing whitespaces.</td>
+<td>末尾の空白を禁止する。</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>14</td>
+<td>indent</td>
+<td>4</td>
+<td>Specify indentation spacing</td>
+<td>タブ幅を指定します。</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>col1</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>debug</td>
+<td>FALSE</td>
+<td>Allow debugger statements e.g. browser breakpoints</td>
+<td>debuggerステートメントに警告を出さないようにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>2</td>
+<td>es5</td>
+<td>TRUE</td>
+<td>Allow ECMAScript 5 syntax.</td>
+<td>ECMAScriptの5構文を許可する。</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>3</td>
+<td>globalstrict</td>
+<td>FALSE</td>
+<td>Allow global "use strict" (also enables 'strict').</td>
+<td>global strict mode の使用に警告を出さないようにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>asi</td>
+<td>FALSE</td>
+<td>Tolerate Automatic Semicolon Insertion (no semicolons).</td>
+<td>セミコロンがない場合に警告を出さないようにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>5</td>
+<td>laxbreak</td>
+<td>TRUE</td>
+<td>Tolerate unsafe line breaks e.g. <code>return [\n] x</code> without semicolons.</td>
+<td>安全でない可能性がある改行に警告を出さないようにします</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>6</td>
+<td>boss</td>
+<td>FALSE</td>
+<td>Tolerate assignments inside if, for &amp; while. Usually conditions &amp; loops are for comparison, not assignments.</td>
+<td>比較が行われる場所での代入に警告を出さないようにします</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>7</td>
+<td>eqnull</td>
+<td>FALSE</td>
+<td>Tolerate use of <code>== null</code>
+</td>
+<td>
+<code>== null</code>での使用を容認する</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>8</td>
+<td>evil</td>
+<td>FALSE</td>
+<td>Tolerate use of <code>eval</code>
+</td>
+<td>``evalの使用を容認</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>9</td>
+<td>expr</td>
+<td>FALSE</td>
+<td>Tolerate <code>ExpressionStatement</code> as Programs.</td>
+<td>関数呼び出しや代入が期待される箇所での式表現に警告を出さないようにします 参考：<a href="https://github.com/jshint/jshint/issues/23">https://github.com/jshint/jshint/issues/23</a>
+</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>10</td>
+<td>loopfunc</td>
+<td>FALSE</td>
+<td>Allow functions to be defined within loops.</td>
+<td>関数は、ループ内で定義することができます。</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>11</td>
+<td>noarg</td>
+<td>TRUE</td>
+<td>Prohibit use of <code>arguments.caller</code> and <code>arguments.callee</code>.</td>
+<td>
+<code>arguments.caller</code>と<code>arguments.calleeの</code>の使用を禁止する。</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>12</td>
+<td>regexp</td>
+<td>TRUE</td>
+<td>Prohibit <code>.</code> and <code>[^...]</code> in regular expressions.</td>
+<td>正規表現で安全でない.の使用を禁止します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>13</td>
+<td>regexdash</td>
+<td>FALSE</td>
+<td>Tolerate unescaped last dash i.e. <code>[-...]</code>.</td>
+<td>正規表現の最後にエスケープされていない-がある場合に警告を出さないようにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>14</td>
+<td>scripturl</td>
+<td>TRUE</td>
+<td>Tolerate script-targeted URLs.</td>
+<td>javascript:...に警告を出さないようにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>15</td>
+<td>shadow</td>
+<td>FALSE</td>
+<td>Allows re-define variables later in code e.g. <code>var x=1; x=2;</code>.</td>
+<td>変数の再定義に対する警告を出さないようにします</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>16</td>
+<td>supernew</td>
+<td>FALSE</td>
+<td>Tolerate <code>new function \(\) \{ ... \};</code> and <code>new Object;</code>.</td>
+<td>「奇妙な」コンストラクタに対する警告を出さないようにします new function () { ... } や new Object; などです｡ こういったコンストラクタはsingletonで使われることがあります｡</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>17</td>
+<td>sub</td>
+<td>FALSE</td>
+<td>Tolerate all forms of subscript notation besides dot notation e.g. <code>dict['key']</code> instead of <code>dict.key</code>.</td>
+<td>[]表記に対する警告を出さないようにします person['name'] vs. person.name</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>col1</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>maxerr</td>
+<td>100</td>
+<td>Maximum error before stopping.</td>
+<td>停止する前に、最大誤差。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>browser</td>
+<td>TRUE</td>
+<td>// Standard browser globals e.g. <code>window</code>, <code>document</code>.</td>
+<td>ブラウザのグローバルオブジェクトを定義済みとします Note: このオプションは alert と console を定義済みにしません devel を参照してください</td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>node</td>
+<td>FALSE</td>
+<td></td>
+<td></td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>4</td>
+<td>rhino</td>
+<td>FALSE</td>
+<td></td>
+<td></td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>5</td>
+<td>couch</td>
+<td>FALSE</td>
+<td></td>
+<td></td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>6</td>
+<td>wsh</td>
+<td>TRUE</td>
+<td></td>
+<td>Windows Script Hostのグローバルオブジェクトを定義済みにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>jquery</td>
+<td>TRUE</td>
+<td></td>
+<td></td>
+<td>TRUE</td>
+</tr>
+<tr>
+<td>8</td>
+<td>prototypejs</td>
+<td>FALSE</td>
+<td></td>
+<td></td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>9</td>
+<td>mootools</td>
+<td>FALSE</td>
+<td></td>
+<td></td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>10</td>
+<td>dojo</td>
+<td>FALSE</td>
+<td></td>
+<td></td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>devel</td>
+<td>TRUE</td>
+<td>Allow developments statements e.g. `console.log();</td>
+<td>consoleやalertを定義済みにします</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>predef</td>
+<td>[]</td>
+<td>Custom globals</td>
+<td>オリジナルのグローバル変数をカンマ区切りで定義しておく</td>
+<td>必要に応じて設定</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>col1</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+<th>col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>passfail</td>
+<td>FALSE</td>
+<td>Stop on first error</td>
+<td>最初のエラーで停止する</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>2</td>
+<td>nomen</td>
+<td>TURE</td>
+<td>Prohibit use of initial or trailing underbars in names.</td>
+<td>変数名に_を使うのを禁止します</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>3</td>
+<td>onevar</td>
+<td>FALSE</td>
+<td>Allow only one <code>var</code> statement per function.</td>
+<td>関数ごとに1つだけ<code>VAR</code>ステートメントを許可する。</td>
+<td>FALSE</td>
+</tr>
+<tr>
+<td>4</td>
+<td>white</td>
+<td>TRUE</td>
+<td>Check against strict whitespace and indentation rules.</td>
+<td>ダグラス・クロックフォードのスタイルでチェックするようにします</td>
+<td>FALSE</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<!-- MdTpl01 --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>

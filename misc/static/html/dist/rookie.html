@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>新人さんいらっしゃーい</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1>AeonUITに参加した時に見るページ</h1>
+
+<h2>まずやること</h2>
+<ol>
+<li>業務システムへのアクセス環境確認
+<li>UIT緊急連絡網へ登録
+<li>勤怠連絡について
+<li>無線LANの設定
+<li>名刺の申請
+<li>開発環境の構築
+<li>devサーバーの確認
+<li>各種権限申請
+<li>プリンタの設定
+<li>AeonUIT業務の中でやることを確認
+</ol>
+
+
+<h2>業務システムへのアクセス環境確認</h2>
+<table class="MdCMN02Table">
+<tr>
+    <th><a href="https://tocaro.im/">tocaro</a></th>
+    <td>IRC（Internet Relay Chat）</td>
+    <td>連絡用チャットツール</td>
+</tr>
+<tr>
+    <th><a href="https://docbase.io/">DocBase</a></th>
+    <td>ドキュメント共有</td>
+    <td>まとめた内容を共有するのに利用する wiki的な利用も可</td>
+</tr>
+<tr>
+    <th><a href="http://www.pivotaltracker.com/">Pivotal Tracker</a></th>
+    <td>BTS（Bug Tracking System/課題管理ツール）</td>
+    <td>StoryIDをbtanch名に利用する</td>
+</tr>
+<tr>
+    <th>社内gyazo</th>
+    <td>スクリーンキャプチャ</td>
+    <td>（準備中）</td>
+</tr>
+
+<tr>
+    <th>GitHub</th>
+    <td>Git</td>
+    <td>アカウントがなければマネージャーが管理者に名前とメールアドレスを伝えて追加してもらう</td>
+</tr>
+<tr>
+    <th>NCSメール</th>
+    <td>社内メール</td>
+    <td>必要に応じて</td>
+</tr>
+<tr>
+    <th>NCSカレンダー</th>
+    <td>社内カレンダー</td>
+    <td>必要に応じて</td>
+</tr>
+</table>
+
+
+<h2>UIT緊急連絡網へ登録</h2>
+<p><a href="https://docs.google.com/spreadsheets/d/1a_sCE250jEVp6-0X4NWCVdU7LNd2x9N5EkQ_Xp2T3Mo/edit#gid=0">AeonUIT緊急連絡網</a><br>google docsを利用しておりますので招待します。<br>googleアカウントのメールアドレスをマネージャーへ送って下さい。</p>
+
+
+<h2>勤怠連絡について</h2>
+<p>【遅刻時】<br>
+AeonUITのML[aeonuit@hogehoge.com] へメール送信して共有する。<br>
+または、tocaroのチームアカウントへメッセージすることでも可とする</p>
+<p>【欠勤時】<br>
+当日の場合は、遅刻時と同じように連絡する。<br>
+事前にわかっている場合は、マネージャーに確認、連絡し、勤怠管理システム（未定）で申請する。<br>
+AeonUITのML[aeonuit@hogehoge.com] へメール送信して共有する。
+</p>
+
+
+<h2>無線LANの設定</h2>
+<table class="MdCMN02Table">
+<tr>
+    <th>ネットワーク名</th>
+    <td>Pass</td>
+    <td>備考</td>
+</tr>
+<tr>
+    <th>ネットワーク名</th>
+    <td>Pass</td>
+    <td>備考</td>
+</tr>
+</table>
+
+
+<h2>名刺の申請</h2>
+<p>申請フローをのちほど記載</p>
+
+
+<h2>開発環境の構築</h2>
+<p>支給されたPCの開発環境をお好みに自由に構築してください。以下は最低限必要なものです。</p>
+<ul>
+    <li><a href="">開発環境インストール</a></li>
+    <li>AdobeCC</li>
+    <li>お好みのエディター</li>
+    <li>スクリーンキャプチャ Gyazo（準備中）</li>
+    <li>テキスト共有 NoNoPaste: Yet Another NoPaste（準備中）</li>
+</ul>
+
+<h2>devサーバーの確認</h2>
+<p>開発はGitHubにリポジトリを作成し、適宜作業内容をCommitしてUITサーバーで成果物を確認して作業を進行します。<br>
+GitHubの各リポジトリのSettingsにあるService HooksにWebHookを設定することで、GitHubにcommitした内容がUITサーバーにpullされますので、確認用URLにブラウザでアクセスしてページを確認することができます。<br>
+（未実装）</p>
+<p>複数ブランチが切られて進行するプロジェクトに関しては、ブランチにポート番号を紐付けて対応することができます。<br>
+http://git.hoge.com/UIT/deploy_port<br>
+（未実装）</p>
+<table class="MdCMN02Table">
+<tr>
+    <th>WebHook</th>
+    <td>http://uit.hoge.jp:20083/hook</td>
+</tr>
+<tr>
+    <th>確認用URL</th>
+    <td>http://uit.hoge.jp:10081/</td>
+</tr>
+</table>
+
+
+<h2>各種権限申請</h2>
+<p>緊急対応などで社外からの開発環境へのアクセスが必要な場合がありますのでVPNの申請をしておきましょう。<br>
+（未実装）</p>
+
+
+<h2>プリンタの設定</h2>
+<p>ドライバ名、IPアドレスなど後日記載</p>
+<table class="MdCMN02Table">
+<tr>
+    <th>ドライバ</th>
+    <td>IPアドレス</td>
+</tr>
+<tr>
+    <th>hogehoge</th>
+    <td>19.168.1.1</td>
+</tr>
+</table>
+
+
+<h2>AeonUIT業務の中でやること</h2>
+<ul>
+    <li>リソース表への記入　<a href="https://docs.google.com/spreadsheets/d/1z4hI9Ua66wA9XYNtRogsztvWRDyAggeyVbR5D25cnIY/edit#gid=608780426">AeonUITリソース表</a>　（GoogleDocsを利用）
+    <li>週報の記入　毎週金曜に作業内容をまとめています　（DocBaseを利用）
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- /MdMN03project --></div>
+
+<!-- /LyMain --></div>
+
+<div class="LySub">
+
+<!-- /LySub --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>

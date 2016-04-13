@@ -1,0 +1,151 @@
+// # IE \0/ Hack
+// 普通に書くとコンパイルエラーになるため変数に入れて使う
+//
+// Usage:
+//
+// property: value#{$HACK-IE};
+//
+$HACK-IE: "\0/"; // CONST
+
+
+
+// # 下線のスタイルを適用します。
+//
+// @param {String} $_type 下線のスタイル
+//        [line-to-none | line | none-to-line | none]
+// @param {Bool|String} [$_important]=null '!important'の付与
+// @param {Bool} [$_self]=null 呼び出した要素自身へのスタイルの付与
+@mixin link-underline(
+    $_type,
+    $_important: null,
+    $_self: null
+) {
+    @if $_important {
+        $_important: " !important";
+    }
+    @if $_self {
+        $_self: "&,";
+    }
+    @if $_type == line-to-none {
+        #{$_self}
+        &:link,
+        &:visited { text-decoration: underline#{$_important}; }
+        &:hover,
+        &:active,
+        &:focus { text-decoration: none#{$_important}; }
+    } @else if $_type == line {
+        #{$_self}
+        &:link,
+        &:visited,
+        &:hover,
+        &:active,
+        &:focus { text-decoration: underline#{$_important}; }
+    } @else if $_type == none-to-line {
+        #{$_self}
+        &:link,
+        &:visited { text-decoration: none#{$_important}; }
+        &:hover,
+        &:active,
+        &:focus { text-decoration: underline#{$_important}; }
+    } @else if $_type == none {
+        #{$_self}
+        &:link,
+        &:visited,
+        &:hover,
+        &:active,
+        &:focus { text-decoration: none#{$_important}; }
+    } @else {
+        @warn "#{$_type}は駄目！";
+    }
+}
+
+// @:Link Style
+//
+// 下線のあり／なしのスタイルは基本的にはセレクタでおこない、
+// 例外パターン時に MdLink{nn} を使用する。
+//
+// 01: 通常時／オンマウス時ともに下線あり
+// 02: 通常時／オンマウス時ともに下線なし
+// 03: 通常時に下線あり、オンマウス時に下線なし
+// 04: 通常時に下線なし、オンマウス時に下線あり
+//
+@mixin MdLink01 {
+    .MdLink01 {
+        @include link-underline(line, important, self);
+    }
+}
+@mixin MdLink02 {
+    .MdLink02 {
+        @include link-underline(none, important, self);
+    }
+}
+@mixin MdLink03 {
+    .MdLink03 {
+        @include link-underline(line-to-none, important, self);
+    }
+}
+@mixin MdLink04 {
+    .MdLink04 {
+        @include link-underline(none-to-line, important, self);
+    }
+}
+
+
+
+// # ellipsis用のスタイルを適用します。
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// @:For Smartphone, Tablet
+//--------------------------------------------------
+
+// タップ時のカラーを非表示にします。
+@mixin tap-highlight-color-none {
+    -webkit-tap-highlight-color: rgba(#000,0);
+}
+
+@mixin hidden {
+    position: absolute;
+    left: -9999px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin MdCF {
+    .MdCF {
+        @include clearfix;
+    }
+}
+
+@mixin MdHide {
+    .MdHide {
+        position: absolute;
+        left: -9999px;
+    }
+}
+
+@mixin MdNonDisp {
+    .MdNonDisp {
+        display: none !important;
+    }
+}
+
+@mixin MdFontB {
+    .MdFontB {
+        font-weight: bold !important;
+    }
+}
+
+@mixin MdFontN {
+    .MdFontN {
+        font-weight: normal !important;
+    }
+}
+
+

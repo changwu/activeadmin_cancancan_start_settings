@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>jsコーディングガイド</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/dist/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">AEON UIT 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="LyMain">
+
+<div class="MdMN03Gulp">
+
+<div class="ArCMN01main">
+<h2 class="MdCMN01TtlH2">js</h2>
+<p class="MdCMN02Txt">参考：google javascript guide <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml" target="_blank">link</a></p>
+</div>
+
+
+<div class="ArCMN01main">
+<h2 class="MdCMN01TtlH2">コメント</h2>
+<p class="MdCMN02Txt">
+コメントは必ず必要な場合にのみ簡潔明瞭に作成する。不必要なコメントの乱用はソースコードを複雑にする。</p>
+<p class="MdCMN02TxtNote">
+// 内容<br>
+ /*<br>
+ * 内容1<br>
+ * 内容2<br>
+ */
+</p>
+
+<h2 class="MdCMN01TtlH2">ドキュメンテーション・コメント</h2>
+<p class="MdCMN02Txt">
+以下のように記載する。</p>
+<p class="MdCMN02TxtNote">
+/** <br>
+* @name nj.xxx.xxx<br>
+* @description 内容<br>
+* @example<br>
+*  説明<br>
+*/<br>
+method<br>
+/** <br>
+* @description 内容<br>
+*/
+</p>
+
+<h2 class="MdCMN01TtlH2">ネーミング規則</h2>
+<h3 class="MdCMN01TtlH3">日本語発音使用の禁止</h3>
+<p class="MdCMN02Txt">
+ネームスペース、クラス、関数、変数などの名前に日本語の発音をそのまま使わない。</p>
+<p class="MdCMN02TxtNote">
+var sNaiyou = "内容",
+内容 = "内容";
+{code}
+</p>
+<h3 class="MdCMN01TtlH3">特殊文字使用の禁止</h3>
+<p class="MdCMN02Txt">
+ネームスペース、クラス、関数、変数などの名前には特殊文字を使わない。ただし、定数の名前で単語を区別するため、またPrivateアクセス指示者を表示するためにアンダースコア(_)を使う。 (jQuery用の$も例外)</p>
+<h3 class="MdCMN01TtlH3">大文字2字以上連続使用の禁止</h3>
+<p class="MdCMN02Txt">
+ネームスペース、クラス、関数、変数などの名前には大文字を2字以上連続で使わない。Prefix、定数名、略語名(iOS等)は例外とする。</p>
+<h3 class="MdCMN01TtlH3">定数、略語大文字使用の遵守</h3>
+<p class="MdCMN02Txt">
+定数名、略語名には大文字を使う。</p>
+
+<h2 class="MdCMN01TtlH2">ネームスペース命名規則</h2>
+<h3 class="MdCMN01TtlH3">小文字使用の遵守</h3>
+<p class="MdCMN02Txt">
+定数名、略語名には大文字を使う。</p>
+<p class="MdCMN02TxtNote">
+nj.common.XXXXXXX = { ...
+</p>
+
+<h2 class="MdCMN01TtlH2">Class function</h2>
+<h3 class="MdCMN01TtlH3">パスカル記法の遵守</h3>
+<p class="MdCMN02Txt">
+複合語の名前は各単語の最初の文字を大文字で作成して単語を区別する。</p>
+<p class="MdCMN02TxtNote">
+nj.cafe.CafeLeave / nj.search.AutoSuggest
+</p>
+
+<h2 class="MdCMN01TtlH2">Object module名</h2>
+<h3 class="MdCMN01TtlH3">キャメル記法の遵守</h3>
+<p class="MdCMN02Txt">
+複合語名は最初の単語を小文字で作成し、二番目以降の単語の最初の文字を大文字で作成して単語を区別する。</p>
+<p class="MdCMN02TxtNote">
+nj.cafe.cafeJoin / nj.search.customizeSearch
+</p>
+
+<h2 class="MdCMN01TtlH2">Widget名</h2>
+<h3 class="MdCMN01TtlH3">キャメル記法の遵守</h3>
+<p class="MdCMN02Txt">
+複合語名は最初の単語を小文字で作成し、二番目以降の単語の最初の文字を大文字で作成して単語を区別する。</p>
+<h3 class="MdCMN01TtlH3">W Prefix 付けて使用</h3>
+<p class="MdCMN02TxtNote">
+nj.post.WItemUpdater
+</p>
+
+<h2 class="MdCMN01TtlH2">Function名</h2>
+<h3 class="MdCMN01TtlH3">Privateメソッド表記の遵守</h3>
+<p class="MdCMN02Txt">
+Privateメソッドの場合、メソッド名の前にアンダースコア(_)を使用する。</p>
+<h3 class="MdCMN01TtlH3">キャメル記法の遵守</h3>
+<p class="MdCMN02Txt">
+Getter、Setterメソッド命名規則の遵守</p>
+<p class="MdCMN02TxtNote">
+getAgata(); setShai(oPersonInfo) ; isAUI();
+</p>
+<h3 class="MdCMN01TtlH3">イベントハンドラ・メソッド命名規則の遵守</h3>
+<p class="MdCMN02Txt">
+イベントハンドラ・メソッドは名前の最初に'_on'を使う。イベントハンドラ・メソッドは外部からアクセスしない特性上、Privateメソッドで定義する。(_)を使用する。</p>
+<p class="MdCMN02TxtNote">
+_onClick : function {}, ...
+</p>
+
+<h2 class="MdCMN01TtlH2">変数名</h2>
+<h3 class="MdCMN01TtlH3">ハンガリアン記法の遵守</h3>
+<p class="MdCMN02Txt">
+変数名を作成する際、変数のデータタイプ、範囲、用途に応じて接頭辞を使って作成する。</p>
+<p class="MdCMN02TxtNote">
+$Name : $(".name")     // jQuery Object
+</p>
+
+<h2 class="MdCMN01TtlH2">定数名</h2>
+<h3 class="MdCMN01TtlH3">大文字使用の遵守</h3>
+<p class="MdCMN02Txt">
+定数名は大文字で作成し、複合語はアンダースコア(_)を使って単語を区別する。</p>
+<p class="MdCMN02TxtNote">
+var SHAI_AGATA = -9999999999 ;
+</p>
+
+<h2 class="MdCMN01TtlH2">FILE名</h2>
+<p class="MdCMN02Txt">
+モジュール一つにつき一ファイルにする</p>
+<p class="MdCMN02TxtNote">
+nj.agata.shai.battle.js --> nj.agata.shai.battle = {} ;  // Module<br>
+nj.shai.agata.War.js --> nj.shai.agata.War = function () {} ; // Class
+</p>
+
+<h2 class="MdCMN01TtlH2">コード作成規則</h2>
+<h3 class="MdCMN01TtlH3">波括弧(Brace)</h3>
+<p class="MdCMN02TxtNote">
+var fSample = function () {<br>
+} ;
+</p>
+<h3 class="MdCMN01TtlH3">新規行</h3>
+<p class="MdCMN02TxtNote">
+if (true) {<br>
+} else if {<br>
+} else {<br>
+}<br>
+try {<br>
+} catch(e) {<br>
+} finally {<br>
+}
+</p>
+<h3 class="MdCMN01TtlH3">演算子前後の空白使用の遵守</h3>
+<p class="MdCMN02TxtNote">
+var nNum = -4 * -9 ;
+</p>
+<h3 class="MdCMN01TtlH3">Semicolonの遵守</h3>
+<p class="MdCMN02Txt">
+難読化(obfuscating)するために適用する。
+</p>
+<p class="MdCMN02TxtNote">
+var nMemberCount = 1 ;<br>
+var oShai = {              // Object<br>
+} ;<br>
+var fRambda = function() { // Function<br>
+} ;
+</p>
+<h3 class="MdCMN01TtlH3">INDENTの規則</h3>
+<p class="MdCMN02Txt">
+スペース４つ分とする。(２つでもOK)
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- /MdMN03Gulp --></div>
+
+<!-- /LyMain --></div>
+
+<div class="LySub">
+
+<!-- /LySub --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

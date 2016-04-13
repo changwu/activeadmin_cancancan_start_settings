@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>HTML+CSS ベースコーディングガイド  Ver.1.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1 class="MdCMN01TtlH1">HTML+CSS ベースコーディングガイド Ver.1.0</h1>
+<p>BEM、SMACSS、OOCSSをベースとした、オリジナルのモジュール構成で構築します。</p>
+
+<h2>モジュール要素</h2>
+
+<h3>ページを構成する要素を次の2つに分類して管理します。</h3>
+<table>
+<tr>
+<th>分類</th>
+<td>class名の接頭辞</td>
+</tr>
+<tr>
+<th>レイアウト</th>
+<td>.Ly*</td>
+</tr>
+<tr>
+<th>モジュール</th>
+<td>.Md*</td>
+</tr>
+</table>
+
+<h3>レイアウトとモジュールの他に2つのclassがあります。</h3>
+<table>
+<tr>
+<th>分類</th>
+<td>class名の接頭辞</td>
+</tr>
+<tr>
+<th>スタイル拡張用class</th>
+<td>.Ex*</td>
+</tr>
+<tr>
+<th>JS専用class</th>
+<td>.Fn*</td>
+</tr>
+</table>
+
+<h2>レイアウトとモジュールの構成要素</h2>
+<p>レイアウトとモジュールを構成する要素を次のように定義します（BEMと同じです）。</p>
+<ul class="MdCMN02TxtUl">
+<li>起点となる要素を Block （ブロック）<br>アッパーキャメルケースで記述
+<li>Blockを構成する要素を Element （エレメント）<br>ロウワーキャメルケースで記述
+<li>スタイルの一部のみを変化させる要素を Modifier （モディファイア）<br>ロウワーキャメルケースで記述
+</ul>
+<pre>
+<code>
+&lt;div class="LyBlock lyBlockModifier"&gt;
+&lt;div class="lyElement lyElementModifier"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+<ul class="MdCMN02TxtUl">
+<li>基本的には、他のレイアウトやモジュールに影響がないようにスタイルを記述します。
+</ul>
+
+<h2>レイアウト要素（Ly〜）</h2>
+<p>ヘッダ、フッタ、コンテンツエリアなど、大枠のレイアウト部分を構成します。<br>
+</p>
+
+<table>
+<tr>
+<th>要素</th><th>ルール</th><th>例</th>
+</tr>
+<tr>
+<td>Block</td><td>.Ly + 任意の名前(a) </td><td>.LyHead</td>
+</tr>
+<tr>
+<td>Element</td><td>.ly + (a) + 任意の名前(b)</td><td>.lyHeadInner</td>
+</tr>
+<tr>
+<td>Modifier</td><td>.ly + (a) + 任意の名前</td><td>.lyHeadLogo, .lyHeadInnerP02<br>P02はパターン２つ目の意</td>
+</tr>
+</table>
+<ul class="MdCMN02TxtUl">
+<li>Lyは、モジュール要素の下に配置することはできません。
+</ul>
+
+<h2>モジュール要素（Md〜）</h2>
+<p>レイアウト要素以外のページを構成する要素です。</p>
+
+<h3>命名ルール</h3>
+<table>
+<tr>
+<th>要素</th><th>ルール</th><th>例</th>
+</tr>
+<tr>
+<td>Block</td><td>.Md + モジュール名(a) + 2桁の連番(b)</td><td>.MdHead01</td>
+</tr>
+<tr>
+<td>Element</td><td>.md + (a) + (b) + 任意の名前</td><td>.mdHead01Btn</td>
+</tr>
+<tr>
+<td>Modifier</td><td>.md + (a) + (b) + 任意の名前</td><td>.mdHead01Nav, .mdHead01P02</td>
+</tr>
+</table>
+
+<ul class="MdCMN02TxtUl">
+<li>2桁の連番は01から始めます。
+<li>ElementやModifierで任意の名前が重複する場合は、末尾に2桁の連番を追加します。
+<li>例：1つ目がMdFoo01Txtなら2つ目はMdFoo01Txt02とする。 ※01は省略するルールでテスト中
+<!-- <li>重複する名前を2つ以上使用することが想定される場合は、1つ目をMdFoo01Txt01としても良いです。 -->
+</ul>
+
+<h3>モジュール名</h3>
+<table>
+<tr>
+<th>クラス名</th><th>説明</th>
+</tr>
+<tr>
+<td>.MdGHD*</td><td>グローバルヘッダーのモジュール用 (Global HeaDer)<</td>
+</tr>
+<tr>
+<td>.MdGFT*</td><td>グローバルフッターのモジュール用 (Global FooTer)</td>
+</tr>
+<tr>
+<td>.MdBtn{NN}*</td><td>ボタン</td>
+</tr>
+<tr>
+<td>.MdIco{NN}*</td><td>アイコン</td>
+</tr>
+<tr>
+<td>.MdHead{NN}*</td><td>コンテンツヘッダー</td>
+</tr>
+<tr>
+<td>.MdTtl{NN}*</td><td>見出し</td>
+</tr>
+<tr>
+<td>.MdTxt{NN}*</td><td>テキスト</td>
+</tr>
+<tr>
+<td>.MdTbl{NN}*</td><td>テーブル</td>
+</tr>
+<tr>
+<td>.MdList{NN}*</td><td>シンプルなリスト（タグを選ばないもの）</td>
+</tr>
+<tr>
+<td>.MdUl{NN}*</td><td>順不同リスト（&lt;ul&gt;を内包する）</ul>
+</tr>
+<tr>
+<td>.MdOl{NN}*</td><td>順序リスト（&lt;ol&gt;を内包する）</ol>
+</tr>
+<tr>
+<td>.MdDl{NN}*</td><td>定義リスト（&lt;dl&gt;を内包する）</dl>
+</tr>
+<tr>
+<td>.MdHLine{NN}*</td><td>横線のセパレーター（Horizontal Line）<br>.MdSeparator{NN}*は廃止</td>
+</tr>
+<tr>
+<td>.MdVLine{NN}*</td><td>縦線のセパレーター（Vertical Line）<br>.MdSeparator{NN}*は廃止</td>
+</tr>
+<tr>
+<td>.MdBox{NN}*</td><td>コンテンツボックス</td>
+</tr>
+<tr>
+<td>.MdOverlay{NN}*</td><td>オーバーレイ</td>
+</tr>
+<tr>
+<td>.MdMargin{NN}</td><td>marginを上書きする</td>
+</tr>
+<tr>
+<td>.MdColor{NN}</td><td>colorを上書きする</td>
+</tr>
+</table>
+
+<h3>フォーム関連モジュール命名ルール</h3>
+
+<table>
+<tr>
+<th>クラス名</th><th>説明</th>
+</tr>
+<tr>
+<td>.MdFormGroup{NN}</td><td>グルーピングとスタッキング（積み重ね）</td>
+</tr>
+<tr>
+<td>MdInputTxt{NN}</td><td>テキスト入力ボックス</td>
+</tr>
+<tr>
+<td>MdTextarea{NN}</td><td>複数行テキスト入力欄</td>
+</tr>
+<tr>
+<td>MdCheckbox{NN}</td><td>チェックボックス</td>
+</tr>
+<tr>
+<td>MdRadio{NN}</td><td>ラジオボタン</td>
+</tr>
+<tr>
+<td>MdSelectBox{NN}</td><td>セレクトボックス</td>
+</tr>
+<tr>
+<td>MdFormLabel{NN}</td><td>ラベル</td>
+</tr>
+<tr>
+<td>MdFormTxt{NN}</td><td>ヘルプテキスト（入力項目周りの説明テキストなど）</td>
+</tr>
+<tr>
+<td>MdFormSubTxt{NN}</td><td>入力項目補助テキスト</td>
+</tr>
+<tr>
+<td>MdFormStaticTxt{NN}</td><td>静的テキスト</td>
+</tr>
+<tr>
+<td>MdFormError{NN}</td><td>エラーメッセージ</td>
+</tr>
+<tr>
+<td>MdUploadBtn{NN}</td><td>ファイルアップロードボタン</td>
+</tr>
+</table>
+
+<h3>libですでに定義しているモジュール。スタイルも固定です。</h3>
+
+<table>
+<tr>
+<th>クラス名</th><th>説明</th>
+</tr>
+<tr>
+<td>.MdCF</td><td>clearfixを適用する</td>
+</tr>
+<tr>
+<td>.MdHide</td><td>要素を非表示にする（スクリーンリーダー向け）</td>
+</tr>
+<tr>
+<td>.MdNonDisp</td><td>display: none !important;を適用する</td>
+</tr>
+<tr>
+<td>.MdFontB</td><td>font-weight: bold !important;を適用する</td>
+</tr>
+<tr>
+<td>.MdFontN</td><td>font-weight: normal !important;を適用する</td>
+</tr>
+<tr>
+<td>.MdLink0(1-4)</td><td>リンクの下線のスタイルを上書きする</td>
+</tr>
+<tr>
+<td>.MdAlignL<br>
+.MdAlignC<br>
+.MdAlignR</td><td>text-align: value !important;を適用する（主にテーブルセル用）</td>
+</tr>
+</table>
+
+<h2>スタイル拡張用class .Ex</h2>
+<ul class="MdCMN02TxtUl">
+<li>状態, 属性, 機能などにより、スタイルを拡張させるclassです。
+<li>主に.Md*と併用します。&lt;html&gt;や&lt;body&gt;につけるclassもあります。
+<li>他のclassと併用してスタイルを変化させるclassのため、.Ex*単体のスタイルを定義してはいけません。
+<li>通常のclassと異なり、JS/サーバー側で追加や削除することが多いです。
+</ul>
+
+<h3>利用方法</h3>
+<p>BlockとElementの間に差し込み、Elementのスタイルを変更する。</p>
+<p class="mdTpl04Note">.MdFoo01 .ExDisabled .mdFoo01Btn {...}</p>
+<p>Blockと連結させ、Elementのスタイルを変更する。</p>
+<p class="mdTpl04Note">.MdFoo01.ExDisabled .mdFoo01Btn {...}</p>
+<p>Blockと連結させ、Blockのスタイルを変更する。</p>
+<p class="mdTpl04Note">.MdFoo01.ExDisabled {...}</p>
+
+<table>
+<tr>
+<th>class名</th><th>説明</th>
+</tr>
+<tr>
+<td>ExDisabled</td>
+<td>不可状態。</td>
+</tr>
+<tr>
+<td>ExSelected</td>
+<td>選択状態。CurrentやActiveなどは使用しない。</td>
+</tr>
+<tr>
+<td>ExDrag</td>
+<td>ドラッグ時。</td>
+</tr>
+<tr>
+<td>ExHover</td>
+<td>マウスオーバー状態（:hoverではなくJSで制御する場合など）</td>
+</tr>
+<tr>
+<td>ExTap</td>
+<td>タブレットでのタップ状態</td>
+</tr>
+<tr>
+<td>ExEdit</td>
+<td>コンテンツ編集状態</td>
+</tr>
+<tr>
+<td>ExEditable</td>
+<td>コンテンツ編集可能状態</td>
+</tr>
+<tr>
+<td>ExPlaceholder</td>
+<td>レガシーブラウザ向けにvalueなどの値をプレースホルダーとして表示する場合</td>
+</tr>
+</table>
+<p class="mdTpl04Note">例：<code>&lt;input type="text" value="" class="MdInput ExDisabled"&gt;</code></p>
+
+<h3>&lt;html&gt;と&lt;body&gt;用</h3>
+
+<table>
+<tr>
+<th>class名</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>.ExOsWin</td>
+<td>Windows用</td>
+</tr>
+<tr>
+<td>.ExOsMac</td>
+<td>Mac用</td>
+</tr>
+<tr>
+<td>.ExOsIos</td>
+<td>iOS用</td>
+</tr>
+<tr>
+<td>.ExOsAdr</td>
+<td>Android用</td>
+</tr>
+<tr>
+<td>.ExOsBb</td>
+<td>BlackBerry用</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th>class名</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>.ExIe</td>
+<td>Internet Explorer用</td>
+</tr>
+<tr>
+<td>.ExFx</td>
+<td>Firefox用</td>
+</tr>
+<tr>
+<td>.ExCh</td>
+<td>Chrome用</td>
+</tr>
+<tr>
+<td>.ExSf</td>
+<td>Safari用</td>
+</tr>
+<tr>
+<td>.ExOp</td>
+<td>Opera用</td>
+</tr>
+<tr>
+<td>.ExAdr</td>
+<td>Android標準ブラウザ用</td>
+</tr>
+</table>
+
+<h3>Exの記述方法</h3>
+<p>Ex系のClass単体でスタイルを持つことは禁止</p>
+
+<p class="mdTpl04Note">
+<code>
+.ExPlaceholder { ... } --- これは単体での記述なので不可。<br>
+ <br>
+/* 下記は正しい使用方法 */<br>
+.MdInput01 .ExPlaceholder input {<br>
+　　　:<br>
+}<br>
+.MdInput01.ExPlaceholder {<br>
+　　　/* モジュールルートClassと連結し、スタイルを変更する */<br>
+　　　:<br>
+}<br>
+.MdInput01.ExPlaceholder input {<br>
+　　　/* モジュールルートClassと連結し、子孫要素のスタイルを変更する */<br>
+　　　:
+</code>
+</p>
+<h2>JS指定要素（Fn〜）</h2>
+<p>JSを実装する際に設定するモジュール</p>
+<ul class="MdCMN02TxtUl">
+<li>.Fn + 任意の名前
+<li>スタイルを指定しない。
+</ul>
+
+
+<!-- MdTpl01 --></div>
+
+<!-- /LyMain --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

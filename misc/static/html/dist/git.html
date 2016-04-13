@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>開発環境</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1 class="MdCMN01TtlH1">Git</h1>
+<p>Gitを利用したバージョン管理　GitHubを利用しています。</p>
+
+<h2>ブランチの種類</h2>
+<ul>
+<li>masterブランチ
+<li>開発ブランチ
+<li>リリースブランチ
+</ul>
+
+<h2>masterブランチ</h2>
+<ul>
+<li>リリースされているものと同一の状態を保っているブランチ
+<li>masterへはマージのみ可とし、修正などは直接コミットしない
+</ul>
+
+<h2>開発ブランチ</h2>
+<ul>
+<li>Pivotal TrackerのStoryIDか、GitHubのIssue番号でmasterからブランチを作成する
+<li>開発ブランチを切ってから別のリリースがあった場合、masterの内容を開発ブランチに都度マージして最新にして開発する
+<li>開発ブランチ単体でリリースする場合は、開発ブランチでQA、リリースまで行う
+<li>リリース後masterブランチへマージする
+</ul>
+
+<h2>リリースブランチ</h2>
+<ul>
+<li>複数の作業ブランチをまとめてリリースする場合に作成する。普段は使わないブランチです。
+<li>リリース用のStory（GitHubの場合はIssue）を立て、descriptionにリリースするStoryのIDをまとめておく
+<li>基本的にリリースブランチへはマージのみ可とするが、プロダクトをリリースする前の微調整、マージ後のcssやJSなどのコンパイルはコミットを可とする
+<li>開発ブランチに依存する問題の場合、各作業ブランチで修正してからリリースブランチにマージする
+<li>リリース後masterブランチへマージする
+</ul>
+
+
+<h2>コードレビュー（プルリクエスト）</h2>
+<ul>
+<li>コードレビューは、レビューしたい開発ブランチからmasterブランチに対してプルリクエストを作成し、そこで行う
+<li>レビュー後、レビュー用のプルリクエストはマージしない。 レビューが終わった時点でcloseする
+</ul>
+
+<h2>GitHubについて</h2>
+<ul>
+<li>Githubは1個のRepositoryで最大1GB、1 Fileで最大500MBのLimitがある。
+<li>また、50MB以上をpushすると、Warningが発生する。
+</ul>
+
+
+<!-- /MdTpl01 --></div>
+
+<!-- /LyMain --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

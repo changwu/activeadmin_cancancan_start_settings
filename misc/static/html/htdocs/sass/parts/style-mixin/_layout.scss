@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+//
+// Layout
+//
+
+$LyWrap-width: 960px;
+$LyMain-width: 700px;
+$LyContents-padding-h: 10px;
+$LyContents-width: $LyWrap-width - ($LyContents-padding-h * 2);
+$body-min-width: $LyWrap-width + 20px;
+
+
+
+@mixin LyWrap {
+	/*
+	--------------------------------------------------
+	@:Body, LyWrap
+	--------------------------------------------------
+	*/
+
+	body {
+		// min-width: $body-min-width;
+		background: $body-bg-color;
+	}
+	.LyWrap {
+		// width: $LyWrap-width;
+		@include outer-container(100%);
+		
+
+	}
+
+}
+
+@mixin LyHead {
+	/*
+	--------------------------------------------------
+	@:Header
+	--------------------------------------------------
+	*/
+
+	.LyHead {
+		position: relative;
+		background-color: #2a2c2e;
+		color: #C8C8CA;
+		padding: 10px 40px;
+		@include outer-container(100%);
+
+	}
+}
+
+@mixin LyFoot {
+	/*
+	--------------------------------------------------
+	@:Footer
+	--------------------------------------------------
+	*/
+
+	.LyFoot {
+		@extend %clearfix;
+		background-color: #2a2c2e;
+		padding: 10px 40px;
+		@include outer-container(100%);
+	}
+}
+
+@mixin LyContents {
+	/*
+	--------------------------------------------------
+	@:Contents
+	--------------------------------------------------
+	*/
+
+	.LyContents {
+		// width: $LyContents-width;
+		// margin: 0 auto;
+		// padding: 20px $LyContents-padding-h;
+		// background: #fff;
+		// padding: 2rem 1.2rem 3rem;
+		padding: 24px 0;
+		@include outer-container(94%);
+		
+
+	}
+	.LyMain {
+		@include span-columns(9);
+	}
+	.LySub {
+		@include span-columns(3);
+	}
+}

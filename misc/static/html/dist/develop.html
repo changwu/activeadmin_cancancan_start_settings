@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="UTF-8">
+<title>開発環境インストール</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="企画指定のテキスト">
+<meta name="keywords" content="企画指定のキーワード, キーワード">
+<link rel="stylesheet" href="/css/project.min.css">
+<link rel="stylesheet" href="/js/project.min.js">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+<![endif]-->
+
+<body class="topPage">
+<div class="LyWrap">
+
+<div class="LyHead">
+    <div class="MdGHD01Logo">
+        <a href="/">Web Creation チーム 制作環境</a>
+    </div>
+    <div class="MdGHD02Util">
+    <ul class="mdGHD02Ul">
+    <li><a href="codeguide01.html">HTML+CSS コーディングガイド</a>
+        <li><a href="develop.html">開発環境</a>
+        <li><a href="tools.html">ツール</a>
+    </ul>
+    </div>
+</div>
+
+<div class="LyContents">
+
+<div class="MdTpl01">
+
+<h1 class="MdCMN01TtlH1">開発環境インストール</h1>
+<p>
+UITチームで推奨する開発環境についてのドキュメントです<br>
+新しく入ったメンバーへの開発環境のスムーズな共有と、チーム内での開発効率化を目的としています。</p>
+
+<div class="ArCMN01main">
+<h2>Xcode</h2>
+<ul>
+<li>homebrewをいれるのにcommand line toolsが必要
+<li>ios emulator なども入れておくとよい
+<li>App Storeからインストール可能 （OS:yosemiteからインストールが出来ない報告もあり）
+</ul>
+
+<h2>homebrew</h2>
+<p>パッケージ管理ツール</p>
+<h3>インストール</h3>
+<ul>
+<li>$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+</ul>
+
+<h2>Google Chrome</h2>
+<ul>
+<li>developer tools
+<li>Androidのremote debugや<a href="http://people.apache.org/~pmuellr/weinre/docs/latest/">weiner</a>を使ったリモートデバックなど
+<li>開発に役立つextentionも豊富
+</ul>
+
+<h2>Git</h2>
+<p>分散型バージョン管理システム</p>
+<h3>インストール</h3>
+<ul>
+<li>$ brew install git
+</ul>
+
+<h2>PHP5.4+</h2>
+<p>grunt-phpで5.4以上が必要（gruntを利用していないが念のためインストールしておく）</p>
+<h3>インストール　PHP 5.6 (Current stable)</h3>
+<ul>
+<li>$ curl -s http://php-osx.liip.ch/install.sh | bash -s 5.6
+</ul>
+<h3>インストール、アップデート情報</h3>
+<ul>
+<li>http://php-osx.liip.ch/
+</ul>
+
+<h2>Node.js</h2>
+<p>インストールするとnodeコマンドとnpmコマンドが利用できるようになります。</p>
+<h3>homebrewでインストールの場合</h3>
+<ul>
+<li>$ brew install node
+</ul>
+<h3>nodebrewでインストールの場合</h3>
+<ul>
+<li>$ curl -L git.io/nodebrew | perl - setup
+<li>.bashrcや.zshrcに以下の環境変数を追加する (設定後 source ~/.bashrc で反映)
+<li>$ export PATH=$HOME/.nodebrew/current/bin:$PATH
+</ul>
+<h3>例えばv0.11.12をinstallする場合</h3>
+<ul>
+<li>nodebrew install-binary v0.11.12
+<li>nodebrew use v0.11.12
+</ul>
+
+<h2>npm</h2>
+<ul>
+<li>nodejs用のパッケージ管理ツール
+<li>homebrewでnodejsをインストールすると一緒に入ります
+</ul>
+<h3>npmによるインストール（グローバルにインストール）</h3>
+<ul>
+<li>$ npm install -g パッケージ名
+</ul>
+<h3>npm install がうまくいかないとき</h3>
+<ul>
+<li>$ npm cache clean npm update
+</ul>
+<h3>nodeのversionを複数使う場合</h3>
+<ul>
+<li>nvmかnaveを使用する
+</ul>
+
+<h3>プロジェクトごとに利用するパッケージの管理</h3>
+<ul>
+<li>$ npm intsall --save-dev パッケージ名
+<li>$ npm i -D パッケージ名 （ショートカット表記）
+</ul>
+
+<h2>bower（今は利用していない）</h2>
+<p>JSライブラリ管理ツール</p>
+<ul>
+<li>インストール
+<li>$ npm install -g bower
+</ul>
+
+<h2>yeoman（今は利用していない）</h2>
+<p>プロジェクトの雛形作成(scaffolding)</p>
+<ul>
+<li>インストール
+<li>$ npm install -g yo
+</ul>
+
+<h2>Gulp</h2>
+<h3>gulpのインストール　２箇所にインストール</h3>
+<ul>
+<li>$ npm install -g gulp
+<li>$ npm install --save-dev gulp
+</ul>
+<h3>以下のエラーが出る場合</h3>
+<ul>
+<li>/Users/username/.npm/_locks 以下の権限がrootになっているのでエラーになっている場合変更
+<li>$ sudo chown -R `whoami` ~/.npm/_locks/
+</ul>
+<h3>グローバルとローカルのバージョンを確認</h3>
+<ul>
+<li>$ gulp -v 
+</ul>
+<h3>グローバルに合わせて修正する</h3>
+<ul>
+<li>$ npm install gulp@3.8.11 --save
+</ul>
+
+<h2>Android SDK</h2>
+<p>webview上のコンテンツ開発などにlogcat, ddms などがあると役立つ</p>
+
+<h2>Sass</h2>
+<ul>
+<li>インストール
+<li>$ sudo gem update --system sudo gem install sass 
+</ul>
+
+<h2>Compass（今は利用していない）</h2>
+<ul>
+<li>インストール
+<li>$ sudo gem update --system sudo gem install compass 
+</ul>
+
+<h2>GitHub</h2>
+
+<h3>鍵の作成</h3>
+<ul>
+<li>$ ssh-keygen -t rsa -C "<自分のアドレス>@hogehoge.com"
+<li>パスフレーズなど聞かれますが、空で問題ありません。
+</ul>
+<h3>鍵の登録</h3>
+<ul>
+<li>$ eval "$(ssh-agent -s)"
+<li>$ ssh-add ~/.ssh/id_rsa
+<li>$ pbcopy < ~/.ssh/id_rsa.pub # クリップボードにコピーされます
+<li>http://git.hogehoge.com/settings/ssh > [Add SSH key]のKeyにペーストして登録します。
+</ul>
+<h3>Hostの設定</h3>
+
+<pre>
+Host git.linecorp.com
+  HostName git.hogehoge.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+  Port 20022  
+</pre>
+<p>~/.ssh/configに追記します。</p>
+
+</div>
+
+<!-- /MdMN02develop --></div>
+
+<!-- /LyMain --></div>
+
+<!-- /LyContents --></div>
+
+<footer>
+<div class="LyFoot" role="contentinfo">
+<p class="MdGFT01Copy"><small>©&nbsp;<b>aeon link</b></small></p>
+<!--/LyFoot--></div>
+</footer>
+
+
+</body>
+</html>
+

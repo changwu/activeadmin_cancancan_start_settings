@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+//
+// _extend.scss
+//
+// プレースホルダーセレクター設置用のファイルです。
+
+// @:General
+// ==================================================
+
+// @:Separators
+// --------------------------------------------------
+
+
+
+%clearfix {
+    @include clearfix;
+}
+
+// リストの画像のゆっくりhover
+%image-hover {
+    transition: all 0.3s ease;
+    &:hover {
+        opacity: 0.75;
+        filter: alpha(opacity=75); // ie8
+        -ms-filter: alpha(opacity=75); // ie6、7
+    }
+}
